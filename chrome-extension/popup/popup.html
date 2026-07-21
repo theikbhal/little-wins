@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Little Wins</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div id="app">
+    <div id="tabs">
+      <button class="tab-btn active" data-tab="wins">🎉 Wins</button>
+      <button class="tab-btn" data-tab="focus">🎯 Focus</button>
+      <button class="tab-btn" data-tab="zikir">📿 Zikir</button>
+    </div>
+
+    <div id="content">
+      <div id="tab-wins" class="tab-content active"></div>
+      <div id="tab-focus" class="tab-content"></div>
+      <div id="tab-zikir" class="tab-content"></div>
+    </div>
+
+    <div id="footer">
+      <button id="theme-btn" title="Toggle theme">🌙</button>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="popup.js"></script>
+</body>
+</html>
