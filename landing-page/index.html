@@ -10,96 +10,338 @@
       background: #000;
       color: #fff;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 24px;
+      -webkit-font-smoothing: antialiased;
     }
-    .container {
-      text-align: center;
-      max-width: 480px;
+    .page {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
     }
-    .emoji { font-size: 64px; margin-bottom: 24px; }
+    .hero { text-align: center; margin-bottom: 48px; }
+    .hero-icon { font-size: 64px; margin-bottom: 20px; display: block; }
     h1 {
-      font-size: 40px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
+      font-size: 44px; font-weight: 800; letter-spacing: -1px;
+      background: linear-gradient(135deg, #00FF87, #00CC6A);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
       margin-bottom: 12px;
     }
     .tagline {
-      font-size: 18px;
-      color: #888;
-      line-height: 1.6;
-      margin-bottom: 40px;
+      font-size: 18px; color: #888; line-height: 1.7; max-width: 440px; margin: 0 auto;
     }
-    .features {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-bottom: 48px;
-    }
+    .tagline em { color: #00FF87; font-style: normal; }
+
+    /* Features */
+    .features { display: flex; flex-direction: column; gap: 12px; margin-bottom: 48px; }
     .feature {
-      background: #111;
-      border: 1px solid #222;
-      border-radius: 16px;
-      padding: 20px;
+      background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 16px;
+      padding: 20px 24px; display: flex; align-items: center; gap: 16px;
+      transition: border-color 0.2s;
     }
-    .feature h3 { font-size: 18px; margin-bottom: 4px; }
-    .feature p { font-size: 14px; color: #888; line-height: 1.5; }
-    .btn {
-      display: inline-block;
-      background: #00FF87;
-      color: #000;
-      text-decoration: none;
-      padding: 16px 48px;
-      border-radius: 28px;
-      font-size: 17px;
-      font-weight: 600;
-      margin-bottom: 16px;
+    .feature:hover { border-color: #00FF8740; }
+    .feature-icon { font-size: 28px; flex-shrink: 0; }
+    .feature-content h3 { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+    .feature-content p { font-size: 13px; color: #666; line-height: 1.5; }
+
+    /* Screenshots */
+    .section-title {
+      text-align: center; font-size: 22px; font-weight: 700; margin-bottom: 24px;
     }
-    .sub {
-      font-size: 13px;
-      color: #555;
+    .section-sub { text-align: center; font-size: 14px; color: #666; margin-bottom: 32px; margin-top: -16px; }
+    .screenshots {
+      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px;
     }
-    .sub a { color: #888; }
-    .footer { margin-top: 64px; font-size: 12px; color: #444; }
+    .phone-mock {
+      width: 220px; background: #0a0a0a; border: 2px solid #222; border-radius: 24px;
+      padding: 10px; position: relative;
+    }
+    .phone-mock .notch {
+      width: 60px; height: 5px; background: #222; border-radius: 3px;
+      margin: 0 auto 8px;
+    }
+    .phone-mock .screen {
+      background: #111; border-radius: 14px; overflow: hidden; font-size: 10px;
+    }
+    .phone-mock .screen .sb {
+      display: flex; justify-content: space-between; padding: 8px 12px 4px;
+      color: #fff; font-size: 9px; font-weight: 600;
+    }
+    .phone-mock .screen .title-bar { padding: 4px 12px; font-size: 14px; font-weight: 700; color: #fff; }
+    .phone-mock .screen .item {
+      display: flex; align-items: center; gap: 6px; padding: 6px 12px;
+      border-top: 1px solid #1a1a1a; color: #ccc; font-size: 10px;
+    }
+    .phone-mock .screen .item .check { width: 14px; height: 14px; border-radius: 50%; border: 1px solid #333; flex-shrink: 0; }
+    .phone-mock .screen .item .check.done { background: #00FF87; border-color: #00FF87; }
+    .phone-mock .screen .input-row {
+      display: flex; gap: 4px; padding: 8px 12px; border-top: 1px solid #1a1a1a;
+    }
+    .phone-mock .screen .input-row .f { flex: 1; height: 22px; background: #1a1a1a; border-radius: 11px; }
+    .phone-mock .screen .input-row .b { width: 22px; height: 22px; background: #00FF87; border-radius: 50%; }
+    .phone-tab-bar {
+      display: flex; justify-content: space-around; padding: 6px 12px 4px;
+      border-top: 1px solid #1a1a1a; margin-top: 4px;
+    }
+    .phone-tab-bar span { font-size: 14px; opacity: 0.4; }
+    .phone-tab-bar span.active { opacity: 1; }
+
+    /* Zikir mock */
+    .zikir-mock { text-align: center; padding: 16px 0; }
+    .zikir-mock .num { font-size: 28px; font-weight: 800; color: #C084FC; }
+    .zikir-mock .bar { height: 3px; background: #1a1a1a; border-radius: 2px; margin: 8px 12px; overflow: hidden; }
+    .zikir-mock .bar .fill { width: 45%; height: 100%; background: #C084FC; border-radius: 2px; }
+    .zikir-mock .pills { display: flex; gap: 4px; justify-content: center; margin: 8px 0; }
+    .zikir-mock .pills span { padding: 2px 10px; border: 1px solid #222; border-radius: 10px; font-size: 9px; color: #666; }
+    .zikir-mock .pills span.on { background: #C084FC; color: #000; border-color: #C084FC; }
+
+    /* Platforms */
+    .platforms {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px;
+    }
+    .platform-badge {
+      display: flex; align-items: center; gap: 10px;
+      background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 12px;
+      padding: 14px 20px; text-decoration: none; color: #fff;
+      transition: border-color 0.2s; min-width: 160px;
+    }
+    .platform-badge:hover { border-color: #00FF8740; }
+    .platform-badge .p-icon { font-size: 24px; }
+    .platform-badge .p-label { font-size: 11px; color: #666; }
+    .platform-badge .p-name { font-size: 14px; font-weight: 600; }
+
+    /* Waitlist */
+    .waitlist-section {
+      background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 20px;
+      padding: 32px; text-align: center; margin-bottom: 48px;
+    }
+    .waitlist-section h2 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+    .waitlist-section p { font-size: 14px; color: #666; margin-bottom: 20px; }
+    .waitlist-form { display: flex; gap: 8px; max-width: 400px; margin: 0 auto; }
+    .waitlist-form input {
+      flex: 1; padding: 12px 18px; border: 1px solid #222; border-radius: 12px;
+      background: #111; color: #fff; font-size: 14px; outline: none; font-family: inherit;
+    }
+    .waitlist-form input:focus { border-color: #00FF87; }
+    .waitlist-form button {
+      padding: 12px 28px; border: none; border-radius: 12px;
+      background: #00FF87; color: #000; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit;
+      transition: opacity 0.2s; white-space: nowrap;
+    }
+    .waitlist-form button:hover { opacity: 0.85; }
+    .waitlist-form button:disabled { opacity: 0.4; cursor: default; }
+    .waitlist-note { font-size: 11px; color: #444; margin-top: 12px; }
+    .waitlist-note a { color: #888; }
+
+    /* Options */
+    .options {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 16px;
+    }
+    .opt-btn {
+      padding: 8px 16px; border: 1px solid #1a1a1a; border-radius: 8px;
+      background: transparent; color: #666; font-size: 12px; text-decoration: none;
+      transition: all 0.2s; font-family: inherit;
+    }
+    .opt-btn:hover { border-color: #333; color: #fff; }
+
+    /* Footer */
+    .footer { text-align: center; padding-top: 24px; border-top: 1px solid #111; }
+    .footer p { font-size: 12px; color: #444; margin-bottom: 4px; }
+    .footer a { color: #666; text-decoration: none; }
+    .footer a:hover { color: #00FF87; }
+
+    /* Toast */
+    .toast {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+      background: #00FF87; color: #000; padding: 12px 24px; border-radius: 12px;
+      font-size: 14px; font-weight: 600; opacity: 0; transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .toast.show { opacity: 1; }
+
+    @media (max-width: 520px) {
+      .page { padding: 24px 16px 40px; }
+      h1 { font-size: 32px; }
+      .phone-mock { width: 180px; }
+      .waitlist-form { flex-direction: column; }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="emoji">🎉</div>
-    <h1>Little Wins</h1>
-    <p class="tagline">
-      A tiny app for ADHD brains.<br />
-      Log small wins. Celebrate them. Build momentum.
-    </p>
+  <div class="page">
+    <!-- Hero -->
+    <div class="hero">
+      <span class="hero-icon">🎉</span>
+      <h1>Little Wins</h1>
+      <p class="tagline">
+        A tiny app for <em>ADHD brains</em>.<br />
+        Log small wins. Celebrate them. Build momentum.
+      </p>
+    </div>
 
+    <!-- Features -->
     <div class="features">
       <div class="feature">
-        <h3>🎉 Log &amp; Celebrate</h3>
-        <p>Finished something small? Tap it. Confetti flies. Dopamine flows.</p>
+        <span class="feature-icon">🎉</span>
+        <div class="feature-content">
+          <h3>Log &amp; Celebrate</h3>
+          <p>Finished something small? Tap it. Confetti flies. Dopamine flows.</p>
+        </div>
       </div>
       <div class="feature">
-        <h3>🎯 One Focus</h3>
-        <p>Set just ONE focus item at a time. No lists. No overwhelm.</p>
+        <span class="feature-icon">🎯</span>
+        <div class="feature-content">
+          <h3>One Focus</h3>
+          <p>Set just ONE focus at a time. No lists. No overwhelm.</p>
+        </div>
       </div>
       <div class="feature">
-        <h3>📝 ParNotes</h3>
-        <p>Quick-capture thoughts without losing your flow.</p>
+        <span class="feature-icon">📿</span>
+        <div class="feature-content">
+          <h3>Zikir Counter</h3>
+          <p>Reverse counter with presets (30, 100, 300, 1000). For dhikr or breathwork.</p>
+        </div>
       </div>
       <div class="feature">
-        <h3>🔒 100% Private</h3>
-        <p>Everything stays on your device. No accounts. No cloud. No tracking.</p>
+        <span class="feature-icon">📝</span>
+        <div class="feature-content">
+          <h3>ParNotes</h3>
+          <p>Quick-capture thoughts without losing your flow.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">🔒</span>
+        <div class="feature-content">
+          <h3>100% Private</h3>
+          <p>Everything stays on your device. No accounts. No cloud. No tracking.</p>
+        </div>
       </div>
     </div>
 
-    <a class="btn" href="https://github.com/theikbhal/little-wins">Coming Soon to iOS</a>
-    <p class="sub">Built with <a href="https://expo.dev">Expo</a> &middot; Open source on <a href="https://github.com/theikbhal/little-wins">GitHub</a></p>
+    <!-- Screenshots -->
+    <h2 class="section-title">See it in action</h2>
+    <p class="section-sub">Minimal, dark, distraction-free</p>
+    <div class="screenshots">
+      <!-- Wins -->
+      <div class="phone-mock">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="sb"><span>9:41</span><span>📶</span></div>
+          <div class="title-bar">Little Wins</div>
+          <div class="item"><div class="check done"></div><span>Sent that email</span><span style="color:#555;margin-left:auto;">May 21</span></div>
+          <div class="item"><div class="check done"></div><span>Brushed teeth 🪥</span><span style="color:#555;margin-left:auto;">May 21</span></div>
+          <div class="item"><div class="check"></div><span>Finished 1 pomodoro</span><span style="color:#555;margin-left:auto;">May 20</span></div>
+          <div class="item"><div class="check"></div><span>Woke up on time</span><span style="color:#555;margin-left:auto;">May 20</span></div>
+          <div class="input-row"><div class="f"></div><div class="b"></div></div>
+          <div class="phone-tab-bar">
+            <span class="active">🎉</span><span>🎯</span><span>📿</span><span>⚙️</span>
+          </div>
+        </div>
+      </div>
+      <!-- Zikir -->
+      <div class="phone-mock">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="sb"><span>9:41</span><span>📶</span></div>
+          <div class="title-bar">Zikir</div>
+          <div class="zikir-mock">
+            <div style="font-size:9px;color:#555;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Count</div>
+            <div class="num">64</div>
+            <div class="bar"><div class="fill"></div></div>
+            <div class="pills"><span class="on">100</span><span>300</span><span>1000</span></div>
+            <div style="display:flex;gap:4px;justify-content:center;margin-top:8px;">
+              <span style="padding:4px 16px;border-radius:12px;background:#C084FC;color:#000;font-size:9px;font-weight:600;">Start</span>
+              <span style="padding:4px 16px;border-radius:12px;border:1px solid #222;font-size:9px;">Reset</span>
+            </div>
+          </div>
+          <div class="phone-tab-bar">
+            <span>🎉</span><span>🎯</span><span class="active">📿</span><span>⚙️</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <!-- Platforms -->
+    <h2 class="section-title">Coming soon</h2>
+    <p class="section-sub">Available on your platform of choice</p>
+    <div class="platforms">
+      <a class="platform-badge" href="#">
+        <span class="p-icon">🍎</span>
+        <div><div class="p-label">Mac App Store</div><div class="p-name">Little Wins</div></div>
+      </a>
+      <a class="platform-badge" href="#">
+        <span class="p-icon">▶️</span>
+        <div><div class="p-label">Google Play</div><div class="p-name">Little Wins</div></div>
+      </a>
+      <a class="platform-badge" href="https://github.com/theikbhal/little-wins">
+        <span class="p-icon">🐙</span>
+        <div><div class="p-label">Open Source</div><div class="p-name">GitHub</div></div>
+      </a>
+      <a class="platform-badge" href="#">
+        <span class="p-icon">🌐</span>
+        <div><div class="p-label">Chrome Web Store</div><div class="p-name">Extension</div></div>
+      </a>
+    </div>
+
+    <!-- Waitlist -->
+    <div class="waitlist-section">
+      <h2>Get early access</h2>
+      <p>Be the first to know when we launch on iOS, Android, Mac &amp; Chrome.</p>
+      <form class="waitlist-form" id="waitlist-form">
+        <input type="email" id="wl-email" placeholder="your@email.com" required />
+        <button type="submit" id="wl-btn">Join Waitlist</button>
+      </form>
+      <div class="waitlist-note">
+        No spam. Unsubscribe anytime. Or email directly:
+        <a href="mailto:theikbhal@gmail.com?subject=Little%20Wins%20Waitlist">theikbhal@gmail.com</a>
+      </div>
+      <div class="options">
+        <a class="opt-btn" href="mailto:theikbhal@gmail.com?subject=Little%20Wins%20Waitlist">📧 Send Email</a>
+        <a class="opt-btn" href="https://github.com/theikbhal/little-wins/issues/new">💬 GitHub Issue</a>
+      </div>
+    </div>
+
+    <!-- Footer -->
     <div class="footer">
-      <p>Made for ADHD brains 💪</p>
+      <p>Made for ADHD brains <span style="color:#00FF87;">✦</span></p>
+      <p><a href="https://github.com/theikbhal/little-wins">GitHub</a> &middot; Built with <a href="https://expo.dev">Expo</a> &middot; <a href="https://github.com/theikbhal">@theikbhal</a></p>
     </div>
   </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // Waitlist — saves to localStorage + opens email draft
+    document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+      e.preventDefault()
+      const btn = document.getElementById('wl-btn')
+      const email = document.getElementById('wl-email').value.trim()
+      if (!email) return
+
+      btn.disabled = true
+      btn.textContent = 'Saving...'
+
+      // Save to localStorage
+      let list = JSON.parse(localStorage.getItem('lw-waitlist') || '[]')
+      if (!list.includes(email)) {
+        list.push(email)
+        localStorage.setItem('lw-waitlist', JSON.stringify(list))
+      }
+
+      showToast('🎉 You\'re on the list!')
+      this.reset()
+      btn.disabled = false
+      btn.textContent = 'Join Waitlist'
+
+      // Also open email draft as backup
+      window.open('mailto:theikbhal@gmail.com?subject=Little%20Wins%20Waitlist&body=' +
+        encodeURIComponent(email + '\n\nSigned up from littlewins.app'), '_blank')
+    })
+
+    function showToast(msg) {
+      const t = document.getElementById('toast')
+      t.textContent = msg; t.classList.add('show')
+      setTimeout(() => t.classList.remove('show'), 3500)
+    }
+  </script>
 </body>
 </html>
