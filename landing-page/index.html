@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Little Wins — Celebrate the small stuff</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .container {
+      text-align: center;
+      max-width: 480px;
+    }
+    .emoji { font-size: 64px; margin-bottom: 24px; }
+    h1 {
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+    .tagline {
+      font-size: 18px;
+      color: #888;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+    .features {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .feature {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .feature h3 { font-size: 18px; margin-bottom: 4px; }
+    .feature p { font-size: 14px; color: #888; line-height: 1.5; }
+    .btn {
+      display: inline-block;
+      background: #00FF87;
+      color: #000;
+      text-decoration: none;
+      padding: 16px 48px;
+      border-radius: 28px;
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .sub {
+      font-size: 13px;
+      color: #555;
+    }
+    .sub a { color: #888; }
+    .footer { margin-top: 64px; font-size: 12px; color: #444; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="emoji">🎉</div>
+    <h1>Little Wins</h1>
+    <p class="tagline">
+      A tiny app for ADHD brains.<br />
+      Log small wins. Celebrate them. Build momentum.
+    </p>
+
+    <div class="features">
+      <div class="feature">
+        <h3>🎉 Log &amp; Celebrate</h3>
+        <p>Finished something small? Tap it. Confetti flies. Dopamine flows.</p>
+      </div>
+      <div class="feature">
+        <h3>🎯 One Focus</h3>
+        <p>Set just ONE focus item at a time. No lists. No overwhelm.</p>
+      </div>
+      <div class="feature">
+        <h3>📝 ParNotes</h3>
+        <p>Quick-capture thoughts without losing your flow.</p>
+      </div>
+      <div class="feature">
+        <h3>🔒 100% Private</h3>
+        <p>Everything stays on your device. No accounts. No cloud. No tracking.</p>
+      </div>
+    </div>
+
+    <a class="btn" href="https://github.com/theikbhal/little-wins">Coming Soon to iOS</a>
+    <p class="sub">Built with <a href="https://expo.dev">Expo</a> &middot; Open source on <a href="https://github.com/theikbhal/little-wins">GitHub</a></p>
+
+    <div class="footer">
+      <p>Made for ADHD brains 💪</p>
+    </div>
+  </div>
+</body>
+</html>
