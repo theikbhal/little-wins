@@ -288,7 +288,7 @@
       <p>Be the first to know when we launch on iOS, Android, Mac &amp; Chrome.</p>
       <div style="display:flex;flex-direction:column;gap:10px;align-items:center;">
         <a class="btn" href="#" id="wl-btn" style="display:inline-block;background:#00FF87;color:#000;text-decoration:none;padding:14px 40px;border-radius:28px;font-size:16px;font-weight:600;">
-          ✏️ Join via Notion
+          ✏️ Join Waitlist
         </a>
         <div class="waitlist-note">
           Or email directly:
@@ -302,22 +302,21 @@
     </div>
 
     <script>
-      // 1. Create a Notion form at https://notionforms.io (free)
-      // 2. Add fields: Email, Name (optional)
-      // 3. Paste your form URL below:
-      var NOTION_FORM_URL = 'https://your-notion-form-url.notion.site'
-      document.getElementById('wl-btn').href = NOTION_FORM_URL
+      // Google Forms setup:
+      // 1. Go to https://forms.google.com
+      // 2. Create form, add "Email" question
+      // 3. Click Send → get the form link
+      // 4. Copy the ?usp=pp_url link and paste below:
+      var GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform'
+      document.getElementById('wl-btn').href = GOOGLE_FORM_URL
 
-      // Show toast if URL not yet configured
-      if (NOTION_FORM_URL.includes('your-notion')) {
+      if (GOOGLE_FORM_URL.includes('YOUR_FORM_ID')) {
         document.getElementById('wl-btn').addEventListener('click', function(e) {
           e.preventDefault()
-          var t = document.getElementById('toast')
-          t.textContent = 'Create your Notion form first → notionforms.io'
-          t.classList.add('show')
-          setTimeout(function() { t.classList.remove('show') }, 4000)
+          showToast('Set up: forms.google.com → paste form link in index.html')
         })
       }
+      function showToast(m) { var t = document.getElementById('toast'); t.textContent = m; t.classList.add('show'); setTimeout(function(){t.classList.remove('show')},4000) }
     </script>
 
     <!-- Footer -->
