@@ -286,19 +286,39 @@
     <div class="waitlist-section">
       <h2>Get early access</h2>
       <p>Be the first to know when we launch on iOS, Android, Mac &amp; Chrome.</p>
-      <form class="waitlist-form" id="waitlist-form">
-        <input type="email" id="wl-email" placeholder="your@email.com" required />
-        <button type="submit" id="wl-btn">Join Waitlist</button>
-      </form>
-      <div class="waitlist-note">
-        No spam. Unsubscribe anytime. Or email directly:
-        <a href="mailto:theikbhal@gmail.com?subject=Little%20Wins%20Waitlist">theikbhal@gmail.com</a>
-      </div>
-      <div class="options">
-        <a class="opt-btn" href="mailto:theikbhal@gmail.com?subject=Little%20Wins%20Waitlist">📧 Send Email</a>
-        <a class="opt-btn" href="https://github.com/theikbhal/little-wins/issues/new">💬 GitHub Issue</a>
+      <div style="display:flex;flex-direction:column;gap:10px;align-items:center;">
+        <a class="btn" href="#" id="wl-btn" style="display:inline-block;background:#00FF87;color:#000;text-decoration:none;padding:14px 40px;border-radius:28px;font-size:16px;font-weight:600;">
+          ✏️ Join via Notion
+        </a>
+        <div class="waitlist-note">
+          Or email directly:
+          <a href="mailto:theikbhal@gmail.com?subject=Little%20Wins%20Waitlist">theikbhal@gmail.com</a>
+        </div>
+        <div class="options">
+          <a class="opt-btn" href="mailto:theikbhal@gmail.com?subject=Little%20Wins%20Waitlist">📧 Send Email</a>
+          <a class="opt-btn" href="https://github.com/theikbhal/little-wins/issues/new">💬 GitHub Issue</a>
+        </div>
       </div>
     </div>
+
+    <script>
+      // 1. Create a Notion form at https://notionforms.io (free)
+      // 2. Add fields: Email, Name (optional)
+      // 3. Paste your form URL below:
+      var NOTION_FORM_URL = 'https://your-notion-form-url.notion.site'
+      document.getElementById('wl-btn').href = NOTION_FORM_URL
+
+      // Show toast if URL not yet configured
+      if (NOTION_FORM_URL.includes('your-notion')) {
+        document.getElementById('wl-btn').addEventListener('click', function(e) {
+          e.preventDefault()
+          var t = document.getElementById('toast')
+          t.textContent = 'Create your Notion form first → notionforms.io'
+          t.classList.add('show')
+          setTimeout(function() { t.classList.remove('show') }, 4000)
+        })
+      }
+    </script>
 
     <!-- Footer -->
     <div class="footer">
@@ -308,40 +328,5 @@
   </div>
 
   <div class="toast" id="toast"></div>
-
-  <script>
-    // Waitlist — saves to localStorage + opens email draft
-    document.getElementById('waitlist-form').addEventListener('submit', function(e) {
-      e.preventDefault()
-      const btn = document.getElementById('wl-btn')
-      const email = document.getElementById('wl-email').value.trim()
-      if (!email) return
-
-      btn.disabled = true
-      btn.textContent = 'Saving...'
-
-      // Save to localStorage
-      let list = JSON.parse(localStorage.getItem('lw-waitlist') || '[]')
-      if (!list.includes(email)) {
-        list.push(email)
-        localStorage.setItem('lw-waitlist', JSON.stringify(list))
-      }
-
-      showToast('🎉 You\'re on the list!')
-      this.reset()
-      btn.disabled = false
-      btn.textContent = 'Join Waitlist'
-
-      // Also open email draft as backup
-      window.open('mailto:theikbhal@gmail.com?subject=Little%20Wins%20Waitlist&body=' +
-        encodeURIComponent(email + '\n\nSigned up from littlewins.app'), '_blank')
-    })
-
-    function showToast(msg) {
-      const t = document.getElementById('toast')
-      t.textContent = msg; t.classList.add('show')
-      setTimeout(() => t.classList.remove('show'), 3500)
-    }
-  </script>
 </body>
 </html>
