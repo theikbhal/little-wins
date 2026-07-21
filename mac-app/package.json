@@ -1,0 +1,13 @@
+{
+  "name": "little-wins",
+  "version": "1.0.0",
+  "description": "Menu bar app for celebrating small wins",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron ."
+  },
+  "dependencies": {
+    "electron": "^33.0.0"
+  }
+}

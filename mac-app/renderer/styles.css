@@ -1,0 +1,468 @@
+:root {
+  --bg: #000000;
+  --surface: #111111;
+  --surface-alt: #1A1A1A;
+  --border: #222222;
+  --text: #FFFFFF;
+  --text-secondary: #888888;
+  --text-muted: #555555;
+  --accent: #00FF87;
+  --accent-dim: #00CC6A;
+  --danger: #FF4444;
+  --focus-color: #FF6B6B;
+  --note-color: #64D8FF;
+  --zikir-color: #C084FC;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+[data-theme="light"] {
+  --bg: #FFFFFF;
+  --surface: #F5F5F5;
+  --surface-alt: #EEEEEE;
+  --border: #E0E0E0;
+  --text: #000000;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --accent: #00CC6A;
+  --accent-dim: #009E52;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font);
+  background: transparent;
+  color: var(--text);
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#app {
+  background: var(--bg);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#drag-region {
+  height: 32px;
+  -webkit-app-region: drag;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+#tabs {
+  display: flex;
+  gap: 4px;
+  padding: 12px 12px 0 12px;
+  background: var(--bg);
+  z-index: 5;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  background: var(--surface-alt);
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: var(--font);
+}
+
+.tab-btn:hover {
+  color: var(--text);
+  background: var(--surface);
+}
+
+.tab-btn.active {
+  background: var(--surface);
+  color: var(--text);
+  border-bottom-color: var(--surface);
+}
+
+#content {
+  flex: 1;
+  overflow-y: auto;
+  background: var(--surface);
+  margin: 0 12px;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  border: 1px solid var(--border);
+  border-top: none;
+}
+
+.tab-content {
+  display: none;
+  padding: 12px;
+  height: 100%;
+  flex-direction: column;
+}
+
+.tab-content.active {
+  display: flex;
+}
+
+#footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 16px;
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+}
+
+#theme-toggle {
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  opacity: 0.5;
+  transition: opacity 0.15s;
+}
+
+#theme-toggle:hover {
+  opacity: 1;
+}
+
+/* Scrollbar */
+#content::-webkit-scrollbar {
+  width: 4px;
+}
+#content::-webkit-scrollbar-track {
+  background: transparent;
+}
+#content::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
+
+/* Wins */
+.win-input-row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.win-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-alt);
+  color: var(--text);
+  font-size: 13px;
+  font-family: var(--font);
+  outline: none;
+}
+
+.win-input:focus {
+  border-color: var(--accent);
+}
+
+.win-add-btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #000;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font);
+}
+
+.win-list {
+  flex: 1;
+}
+
+.win-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 4px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  transition: all 0.15s;
+}
+
+.win-item.celebrated {
+  opacity: 0.5;
+}
+
+.win-item .win-text {
+  flex: 1;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.win-item .win-date {
+  font-size: 10px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.win-celebrate-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.win-celebrate-btn:hover {
+  opacity: 1;
+  background: var(--accent-glow);
+}
+
+.win-delete-btn {
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 12px;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.15s;
+}
+
+.win-item:hover .win-delete-btn {
+  opacity: 1;
+}
+
+.win-delete-btn:hover {
+  color: var(--danger);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 0 4px 0;
+}
+
+.pagination button {
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-alt);
+  color: var(--text);
+  font-size: 12px;
+  cursor: pointer;
+  font-family: var(--font);
+}
+
+.pagination button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.pagination .page-info {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Focus */
+.focus-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 12px;
+  text-align: center;
+  padding: 20px;
+}
+
+.focus-empty .icon {
+  font-size: 36px;
+}
+
+.focus-empty .title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.focus-empty .subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.focus-active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 16px;
+  padding: 20px;
+  text-align: center;
+}
+
+.focus-card {
+  background: var(--surface-alt);
+  border: 1px solid var(--focus-color);
+  border-radius: var(--radius);
+  padding: 24px;
+  width: 100%;
+}
+
+.focus-card .focus-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.focus-card .focus-text {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.focus-complete-btn {
+  padding: 10px 32px;
+  border: none;
+  border-radius: 20px;
+  background: var(--accent);
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font);
+}
+
+/* Zikir */
+.zikir-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 16px;
+  padding: 12px 0;
+}
+
+.zikir-count {
+  font-size: 64px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  color: var(--zikir-color);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.zikir-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.zikir-presets {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.zikir-preset-btn {
+  padding: 6px 16px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface-alt);
+  color: var(--text-secondary);
+  font-size: 12px;
+  cursor: pointer;
+  font-family: var(--font);
+  transition: all 0.15s;
+}
+
+.zikir-preset-btn:hover {
+  border-color: var(--zikir-color);
+  color: var(--text);
+}
+
+.zikir-preset-btn.active {
+  background: var(--zikir-color);
+  color: #000;
+  border-color: var(--zikir-color);
+}
+
+.zikir-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.zikir-btn {
+  padding: 8px 24px;
+  border: none;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font);
+}
+
+.zikir-btn.start {
+  background: var(--zikir-color);
+  color: #000;
+}
+
+.zikir-btn.reset {
+  background: var(--surface-alt);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.zikir-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.zikir-progress {
+  width: 100%;
+  height: 4px;
+  background: var(--surface-alt);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.zikir-progress-bar {
+  height: 100%;
+  background: var(--zikir-color);
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+
+/* Celebration canvas */
+#celebration-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+}

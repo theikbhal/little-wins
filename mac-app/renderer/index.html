@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Little Wins</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <div id="drag-region"></div>
+
+    <div id="tabs">
+      <button class="tab-btn active" data-tab="wins">🎉 Wins</button>
+      <button class="tab-btn" data-tab="focus">🎯 Focus</button>
+      <button class="tab-btn" data-tab="zikir">📿 Zikir</button>
+    </div>
+
+    <div id="content">
+      <div id="tab-wins" class="tab-content active"></div>
+      <div id="tab-focus" class="tab-content"></div>
+      <div id="tab-zikir" class="tab-content"></div>
+    </div>
+
+    <div id="footer">
+      <div id="theme-toggle" title="Toggle theme">🌙</div>
+    </div>
+  </div>
+
+  <div id="celebration-canvas"></div>
+
+  <script src="storage.js"></script>
+  <script src="themes.js"></script>
+  <script src="celebrate.js"></script>
+  <script src="wins.js"></script>
+  <script src="focus.js"></script>
+  <script src="zikir.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
