@@ -307,10 +307,10 @@
       // 2. Create form, add "Email" question
       // 3. Click Send → get the form link
       // 4. Copy the ?usp=pp_url link and paste below:
-      var GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform'
+      var GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfGJJgTnrcjOT6HjzHY8MOvzX8RXQsAbIOKT7RH_2GC0DuyWQ/viewform?usp=pp_url'
       document.getElementById('wl-btn').href = GOOGLE_FORM_URL
 
-      if (GOOGLE_FORM_URL.includes('YOUR_FORM_ID')) {
+      if (GOOGLE_FORM_URL.includes('YOUR_FORM_ID') || GOOGLE_FORM_URL.includes('your-form')) {
         document.getElementById('wl-btn').addEventListener('click', function(e) {
           e.preventDefault()
           showToast('Set up: forms.google.com → paste form link in index.html')
